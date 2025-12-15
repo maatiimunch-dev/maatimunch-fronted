@@ -29,7 +29,7 @@ const footerLinks = {
     { name: "Gifting", path: "/gifting" },
     { name: "Bulk Order", path: "/bulk-order" },
     { name: "Franchise With Us", path: "/franchise" },
-    { name: "Nutraj Coupon Code", path: "/offers" },
+    { name: "Maati Munch Coupon Code", path: "/offers" },
   ],
   offices: ["Delhi"],
   partners: [
@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Left */}
           <div>
-            <img src="/logo.png" alt="Nutraj" className="w-40 mb-6" />
+            <img src="/logo.png" alt="Maati Munch" className="w-40 mb-6" />
 
             <div className="space-y-3 text-sm text-gray-300">
               <p className="flex items-start gap-3">
@@ -68,7 +68,7 @@ const Footer = () => {
                 <FaPhoneAlt /> +91-9971095414
               </p>
               <p className="flex items-center gap-3">
-                <FaEnvelope /> customercare@nutraj.com
+                <FaEnvelope /> customercare@Maati Munch.com
               </p>
             </div>
           </div>

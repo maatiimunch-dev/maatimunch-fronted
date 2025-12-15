@@ -43,7 +43,7 @@ const FindUsSection = () => {
           >
             <img
               src="https://www.consciousfood.com/cdn/shop/files/3_24.jpg?v=1693556888&width=1445"
-              alt="Nutraj Store"
+              alt="Maati Munch Store"
               className="w-full h-[260px] sm:h-[360px] lg:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>

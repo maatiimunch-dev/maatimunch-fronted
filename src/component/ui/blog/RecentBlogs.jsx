@@ -20,9 +20,9 @@ const RecentBlogs = () => {
       logo: "https://chheda.store/wp-content/uploads/2020/12/WhatsApp-Image-2021-06-24-at-16.16.19.jpeg",
       author: "Admin",
       date: "Nov 05, 2025",
-      tags: ["Nutraj", "Premium"],
-      title: "Why Nutraj is the Best Dry Fruit Brand in India",
-      description: "When it comes to quality, taste, trust and health, there is one name that stands out from every Indian home, Nutraj. Be it a handful of almonds before school...",
+      tags: ["Maati Munch", "Premium"],
+      title: "Why Maati Munch is the Best Dry Fruit Brand in India",
+      description: "When it comes to quality, taste, trust and health, there is one name that stands out from every Indian home, Maati Munch. Be it a handful of almonds before school...",
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const RecentBlogs = () => {
       date: "Oct 25, 2025",
       tags: ["Nutrition", "Health"],
       title: "Hazelnuts Benefits: Superfood Secrets for Fitness Goals",
-      description: "Nutraj Hazelnuts are nuts powerhouse brimming with healthy fats, protein, and vitamins that make them a superstar snack for fitness enthusiasts...",
+      description: "Maati Munch Hazelnuts are nuts powerhouse brimming with healthy fats, protein, and vitamins that make them a superstar snack for fitness enthusiasts...",
     }
   ];
   // Show only first 3 blogs
