@@ -6,30 +6,23 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from "react-icons/fa";
+import Logo from "../../../assets/Logo.png";
 
 const footerLinks = {
   company: [
     { name: "About Us", path: "/about" },
-    { name: "CSR Policy", path: "/csr-policy" },
     { name: "Leadership", path: "/leadership" },
     { name: "Certifications", path: "/certifications" },
-    { name: "Careers", path: "/careers" },
-    { name: "Awards & Recognition", path: "/awards" },
   ],
   expertise: [
     { name: "Private Label", path: "/private-label" },
-    { name: "Institutional", path: "/institutional" },
-    { name: "Wholesale", path: "/wholesale" },
-    { name: "Modern Trade", path: "/modern-trade" },
-    { name: "Export Import", path: "/export-import" },
     { name: "Quality & Safety", path: "/quality-safety" },
   ],
   quickLinks: [
     { name: "Blog", path: "/blog" },
     { name: "Gifting", path: "/gifting" },
     { name: "Bulk Order", path: "/bulk-order" },
-    { name: "Franchise With Us", path: "/franchise" },
-    { name: "Maati Munch Coupon Code", path: "/offers" },
+    { name: "Contact Us", path: "/contact" },
   ],
   offices: ["Delhi"],
   partners: [
@@ -56,21 +49,24 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Left */}
           <div>
-            <img src="/logo.png" alt="Maati Munch" className="w-40 mb-6" />
+            <img src={Logo} alt="Maati Munch" className="w-30 h-30 rounded-full mb-6" />
 
             <div className="space-y-3 text-sm text-gray-300">
-              <p className="flex items-start gap-3">
-                <FaMapMarkerAlt className="mt-1" />
-                Pegasus Tower, Office No. 702, 7th Floor, Sector 68, Noida, Uttar
-                Pradesh 201307
-              </p>
-              <p className="flex items-center gap-3">
-                <FaPhoneAlt /> +91-9971095414
-              </p>
-              <p className="flex items-center gap-3">
-                <FaEnvelope /> customercare@Maati Munch.com
-              </p>
-            </div>
+  <p className="flex items-start gap-3">
+    <FaMapMarkerAlt className="mt-1" />
+    Registered & Operational Address: Khutanua, Village Goth, P.S. Khutanua,
+    Madhuban Tola, Khutauna, Madhubani, Bihar – 847227 (Teghra BO, BIHAR)
+  </p>
+
+  <p className="flex items-center gap-3">
+    <FaPhoneAlt /> +91-8826448538
+  </p>
+
+  <p className="flex items-center gap-3">
+    <FaEnvelope /> maatiimunch@gmail.com
+  </p>
+</div>
+
           </div>
 
           {/* Newsletter */}
@@ -90,8 +86,8 @@ const Footer = () => {
             </div>
 
             <div className="mt-6 text-sm text-gray-400">
-              <p>FSSAI License No. - 10016051001876</p>
-              <p>FSSAI License No. - 10017061000315</p>
+              <p>FSSAI License No. - xxxxxxxxx</p>
+              <p>FSSAI License No. - xxxxxx</p>
             </div>
           </div>
         </div>
