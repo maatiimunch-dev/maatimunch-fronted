@@ -260,26 +260,21 @@ import {
   Grid,
 } from "lucide-react";
 import { useCart } from '../../ui/context/CartContext';
+import Logo from '../../../assets/Logo.png'; 
 
 const topHeaderLinks = [
-  { label: "Track Order", path: "/track-order" },
-  { label: "Backtopure Certificate", path: "/certificate" },
-  { label: "Franchise", path: "/franchise" },
+  // { label: "Track Order", path: "/track-order" },
+  // { label: "Backtopure Certificate", path: "/certificate" },
+  // { label: "Franchise", path: "/franchise" },
   { label: "Bulk Order", path: "/bulk-order" },
   { label: "Contact Us", path: "/contact" },
 ];
 
 const menuItems = [
   { label: "Shop", path: "/shop" },
-  { label: "Jumbo Nuts", path: "/jumbo-nuts" },
-  { label: "Snacking", path: "/snacking" },
-  { label: "Dates", path: "/dates" },
-  { label: "Combos", path: "/combos" },
-  { label: "Seeds", path: "/seeds" },
-  { label: "Berries", path: "/berries" },
-  { label: "Exotic Nuts", path: "/exotic-nuts" },
-  { label: "Spices", path: "/spices" },
-];
+  { label: "Blog" , path: "/blog" },
+  { label: "Contact Us", path: "/contact" },
+]; 
 
 const mobileBottomNav = [
   { label: "Home", path: "/", icon: Home },
@@ -339,9 +334,9 @@ const Navbar = () => {
 
             <Link to="/" className="flex-shrink-0">
               <img
-                src="https://thepixel.ai/wp-content/uploads/2024/04/Munch-logo.jpg"
+                src={Logo}
                 alt="Maati Munch"
-                className="h-8 md:h-10"
+                className="h-10 rounded-full w-10"
               />
             </Link>
           </div>

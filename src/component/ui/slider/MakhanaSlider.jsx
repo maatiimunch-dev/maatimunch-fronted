@@ -17,15 +17,12 @@ const MakhanaSlider = () => {
     })
   }, [])
 
-  const nuts = [
-    { name: 'Almond', image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=400&h=400&fit=crop' },
-    { name: 'Cashew', image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=400&fit=crop' },
-    { name: 'Pista', image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=400&fit=crop' },
-    { name: 'Walnut', image: 'https://images.unsplash.com/photo-1622484211110-e24c44b2c3fd?w=400&h=400&fit=crop' },
-    { name: 'Raisin', image: 'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400&h=400&fit=crop' },
-    { name: 'Dates', image: 'https://images.unsplash.com/photo-1610222312218-7c1ba1f7f86f?w=400&h=400&fit=crop' },
-    { name: 'Apricot', image: 'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&h=400&fit=crop' },
-    { name: 'Prunes', image: 'https://images.unsplash.com/photo-1568471173238-64ed8e7e9a6b?w=400&h=400&fit=crop' }
+  const makhanaProducts = [
+    { name: 'Plain Makhana', image: 'https://ajfan.store/cdn/shop/files/MakhanaPlain.webp?v=1754884997' },
+    { name: 'Peri Peri Makhana', image: 'https://5.imimg.com/data5/SELLER/Default/2024/9/454358891/CZ/KE/LX/193081573/peri-peri-makhana.png' },
+    { name: 'Cream & Onion', image: 'https://www.gopalsweetsindia.com/cdn/shop/files/DSC01702.jpg?v=1718609522&width=1200' },
+    { name: 'Pudina Makhana', image: 'https://www.indianveggiedelight.com/wp-content/uploads/2019/09/mint_makhana_1-1.jpg' },
+    { name: 'Caramel Makhana', image: 'https://traditionallymodernfood.com/wp-content/uploads/2020/06/roasted-makhana-recipe-4-flavors-109.jpeg' }
   ]
 
   return (
@@ -36,10 +33,10 @@ const MakhanaSlider = () => {
         data-aos="fade-up"
       >
         <h2 className="text-3xl md:text-5xl font-bold text-orange-600 mb-2 md:mb-4">
-          Nuts & Dry Fruits
+          Makhana Collection
         </h2>
         <p className="text-base md:text-xl text-gray-600">
-          Handpicked for quality and taste
+          Crispy, healthy & delicious fox nuts
         </p>
       </div>
 
@@ -71,7 +68,7 @@ const MakhanaSlider = () => {
             }}
             className="mySwiper"
           >
-            {nuts.map((nut, idx) => (
+            {makhanaProducts.map((product, idx) => (
               <SwiperSlide key={idx}>
                 <div
                   className="px-4 md:px-0 py-4 md:py-8"
@@ -82,8 +79,8 @@ const MakhanaSlider = () => {
                     
                     {/* Image */}
                     <img
-                      src={nut.image}
-                      alt={nut.name}
+                      src={product.image}
+                      alt={product.name}
                       className="absolute inset-0 w-full h-full object-cover"
                       draggable="false"
                     />
@@ -104,7 +101,7 @@ const MakhanaSlider = () => {
                       <div>
                         <div className="bg-white/30 backdrop-blur-lg rounded-xl md:rounded-2xl p-3 md:p-4 text-center transition-all duration-300">
                           <h3 className="text-white text-lg md:text-2xl font-bold tracking-wide drop-shadow-lg">
-                            {nut.name}
+                            {product.name}
                           </h3>
                         </div>
                       </div>

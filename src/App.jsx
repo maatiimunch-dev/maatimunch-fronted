@@ -10,6 +10,8 @@ import ShopPage from './component/ui/shop/ShopPage';
 import Cart from './component/ui/shop/page/Cart';
 import Checkout from './component/ui/shop/page/Checkout';
 import OrderSuccess from './component/ui/shop/page/OrderSuccess';
+import Blog from './component/ui/blog/Blog';
+import BlogDetail from './component/ui/blog/BlogDetail';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order-success" element={<OrderSuccess />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
     </Routes>
    </Layout>
    </>
