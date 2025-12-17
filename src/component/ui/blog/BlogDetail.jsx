@@ -9,7 +9,7 @@ const BlogDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log('ID from URL:', id); // Debug log
+  
     if (id) {
       fetchBlogDetail();
     } else {
@@ -21,22 +21,22 @@ const BlogDetail = () => {
   const fetchBlogDetail = async () => {
     try {
       setLoading(true);
-      console.log('Fetching blog with ID:', id); // Debug log
+     
       
       // Using the single/:id endpoint
       const url = `http://localhost:8080/api/blogs/single/${id}`;
-      console.log('API URL:', url); // Debug log
+    
       
       const response = await fetch(url);
       
-      console.log('Response status:', response.status); // Debug log
+   
       
       if (!response.ok) {
         throw new Error(`Blog not found (Status: ${response.status})`);
       }
       
       const data = await response.json();
-      console.log('Response data:', data); // Debug log
+    
       
       // Handle different response formats
       if (data._id) {
@@ -49,7 +49,7 @@ const BlogDetail = () => {
         // Wrapped in data key
         setBlog(data.data);
       } else {
-        console.log('Unexpected response format:', data);
+       
         throw new Error('Invalid response format');
       }
       

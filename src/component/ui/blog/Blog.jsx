@@ -29,7 +29,7 @@ const Blog = () => {
       } else if (data.data && Array.isArray(data.data)) {
         setBlogs(data.data);
       } else {
-        console.log('Response format:', data);
+      
         setBlogs([]);
       }
       

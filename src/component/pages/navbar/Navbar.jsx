@@ -259,7 +259,7 @@ import {
   Home,
   Grid,
 } from "lucide-react";
-import { useCart } from '../../ui/context/CartContext';
+import { useCart } from '../../../context/CartContext';
 import Logo from '../../../assets/Logo.png'; 
 
 const topHeaderLinks = [
