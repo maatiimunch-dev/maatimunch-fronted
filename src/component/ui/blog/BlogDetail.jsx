@@ -24,7 +24,7 @@ const BlogDetail = () => {
      
       
       // Using the single/:id endpoint
-      const url = `http://localhost:8080/api/blogs/single/${id}`;
+      const url = `https://maatimunch-backend.onrender.com/api/blogs/single/${id}`;
     
       
       const response = await fetch(url);

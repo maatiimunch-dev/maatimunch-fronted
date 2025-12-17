@@ -13,7 +13,7 @@ const Blog = () => {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/api/blogs/fetch');
+      const response = await fetch('https://maatimunch-backend.onrender.com/api/blogs/fetch');
       
       if (!response.ok) {
         throw new Error('Failed to fetch blogs');
