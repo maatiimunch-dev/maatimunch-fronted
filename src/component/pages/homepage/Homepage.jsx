@@ -10,7 +10,7 @@ const Homepage = () => {
   return (
     <div>
       <Home />
-      <MakhanaSlider />
+      {/* <MakhanaSlider /> */}
       <TopSellingProducts />
       <FindUsSection />
       <RecentBlogs />
