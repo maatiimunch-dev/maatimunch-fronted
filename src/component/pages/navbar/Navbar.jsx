@@ -37,8 +37,12 @@ const Navbar = () => {
 
   const [mobileMenu, setMobileMenu] = useState(false);
   const [user, setUser] = useState(null);
+
   const [cartAnimate, setCartAnimate] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
+
+  // ✅ PROFILE STATES
+  const [showProfile, setShowProfile] = useState(false); // mobile
+  const [showDesktopProfile, setShowDesktopProfile] = useState(false); // desktop
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -58,6 +62,7 @@ const Navbar = () => {
     localStorage.removeItem("user");
     setUser(null);
     setShowProfile(false);
+    setShowDesktopProfile(false);
     window.location.href = "/";
   };
 
@@ -79,45 +84,35 @@ const Navbar = () => {
 
       {/* 🔹 MAIN NAVBAR */}
       <header className="bg-white sticky top-0 z-40 shadow">
-        <div className="px-6 mx-auto flex items-center  py-3 gap-10 justify-between">
+        <div className="px-6 mx-auto flex items-center py-3 gap-10 justify-between">
 
-
-         <Link to="/" className="flex items-center gap-2 shrink-0">
-  <img
-    src={Logo}
-    alt="Maati Munch"
-    className="h-10 w-10 rounded-full"
-  />
-  {/* Brand text – desktop only */}
-  <span className="hidden md:block font-semibold text-lg tracking-wide">
-    MaatiMunch
-  </span>
-</Link>
-
+          {/* LOGO + BRAND */}
+          <Link to="/" className="flex items-center gap-2 shrink-0">
+            <img src={Logo} alt="Maati Munch" className="h-10 w-10 rounded-full" />
+            <span className="hidden md:block font-semibold text-lg tracking-wide">
+              MaatiMunch
+            </span>
+          </Link>
 
           {/* MOBILE SEARCH */}
           <div className="flex-1 md:hidden">
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search "
-                className="w-full bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none pl-2 "
+                placeholder="Search"
+                className="w-full bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none"
               />
-              <Search className="absolute right-1 top-2.5 h-4 w-4 text-gray-500" />
+              <Search className="absolute right-2 top-2.5 h-4 w-4 text-gray-500" />
             </div>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenu(!mobileMenu)}
-          >
+          {/* MOBILE MENU */}
+          <button className="md:hidden" onClick={() => setMobileMenu(!mobileMenu)}>
             {mobileMenu ? <X /> : <Menu />}
           </button>
 
           {/* DESKTOP SEARCH */}
           <div className="hidden md:flex w-[420px] mx-auto">
-
             <div className="relative w-full">
               <input
                 type="text"
@@ -130,6 +125,8 @@ const Navbar = () => {
 
           {/* DESKTOP ICONS */}
           <div className="hidden md:flex items-center gap-6 ml-auto">
+
+            {/* CART */}
             <Link to="/cart" className="relative">
               <ShoppingCart />
               {cartCount > 0 && (
@@ -139,31 +136,72 @@ const Navbar = () => {
               )}
             </Link>
 
-            {user ? (
-              <Link
-                to="/profile"
-                className="w-9 h-9 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold"
-              >
-                {user.name
-                  ? user.name.charAt(0).toUpperCase()
-                  : user.email.charAt(0).toUpperCase()}
-              </Link>
-            ) : (
-              <Link to="/login">
-                <User />
-              </Link>
-            )}
+            {/* PROFILE */}
+            <div className="relative">
+              {user ? (
+                <>
+                  <button
+                    onClick={() => setShowDesktopProfile(!showDesktopProfile)}
+                    className="w-9 h-9 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold cursor-pointer"
+                  >
+                    {user.name
+                      ? user.name.charAt(0).toUpperCase()
+                      : user.email.charAt(0).toUpperCase()}
+                  </button>
+
+                  {showDesktopProfile && (
+                    <>
+                      <div
+                        className="fixed inset-0 z-40"
+                        onClick={() => setShowDesktopProfile(false)}
+                      />
+                      <div className="absolute right-0 mt-3 w-56 bg-white border rounded-xl shadow-xl z-50 overflow-hidden">
+                        <div className="px-4 py-3 bg-gray-100">
+                          <p className="text-sm font-semibold">{user.name}</p>
+                          <p className="text-xs text-gray-500 truncate">
+                            {user.email}
+                          </p>
+                        </div>
+
+                        <Link
+                          to="/profile"
+                          className="block px-4 py-3 text-sm hover:bg-gray-50"
+                          onClick={() => setShowDesktopProfile(false)}
+                        >
+                          My Profile
+                        </Link>
+
+                        <Link
+                          to="/orders"
+                          className="block px-4 py-3 text-sm hover:bg-gray-50"
+                          onClick={() => setShowDesktopProfile(false)}
+                        >
+                          My Orders
+                        </Link>
+
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-red-50"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </>
+              ) : (
+                <Link to="/login">
+                  <User />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
 
         {/* DESKTOP MENU */}
         <nav className="hidden md:flex justify-center bg-black text-white text-sm">
           {menuItems.map((item, i) => (
-            <Link
-              key={i}
-              to={item.path}
-              className="px-4 py-3 hover:bg-gray-800"
-            >
+            <Link key={i} to={item.path} className="px-4 py-3 hover:bg-gray-800">
               {item.label}
             </Link>
           ))}
@@ -224,18 +262,13 @@ const Navbar = () => {
                   />
                 )}
                 {item.label}
-                {item.label === "Cart" && cartCount > 0 && (
-                  <span className="absolute -top-1 left-1/2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
-                    {cartCount}
-                  </span>
-                )}
               </Link>
             );
           })}
         </div>
       </div>
 
-      {/* 👤 PROFILE SLIDE-UP */}
+      {/* 👤 MOBILE PROFILE SLIDE-UP */}
       {showProfile && user && (
         <>
           <div
@@ -243,17 +276,8 @@ const Navbar = () => {
             onClick={() => setShowProfile(false)}
           />
           <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 animate-slideUp">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
-                {user.name
-                  ? user.name.charAt(0).toUpperCase()
-                  : user.email.charAt(0).toUpperCase()}
-              </div>
-              <div>
-                <div className="font-semibold">{user.name}</div>
-                <div className="text-xs text-gray-500">{user.email}</div>
-              </div>
-            </div>
+            <p className="font-semibold mb-2">{user.name}</p>
+            <p className="text-xs text-gray-500 mb-4">{user.email}</p>
 
             <Link
               to="/profile"
