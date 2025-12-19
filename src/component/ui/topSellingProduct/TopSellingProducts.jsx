@@ -294,7 +294,7 @@ const TopSellingProducts = () => {
   const fetchProducts = async () => {
     try {
       const res = await api.get('/products/fetch')
-      console.log('TOP SELL RAW RESPONSE:', res.data)
+   
 
       let productList = []
 
@@ -306,7 +306,7 @@ const TopSellingProducts = () => {
         productList = res.data.products
       }
 
-      console.log('TOP SELL FINAL LIST:', productList)
+     
 
       setProducts(productList)
     } catch (err) {
