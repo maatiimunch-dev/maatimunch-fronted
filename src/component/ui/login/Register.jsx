@@ -5,7 +5,7 @@ import { useAuth } from '../../../context/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
-  const { register } = useAuth();
+  const { register, login } = useAuth(); // ✅ Added login from useAuth
   
   const [formData, setFormData] = useState({
     name: '',
@@ -66,18 +66,46 @@ const Register = () => {
     if (!validateForm()) return;
 
     setLoading(true);
-    const result = await register(
-      formData.name,
-      formData.email,
-      formData.phone,
-      formData.password
-    );
-    setLoading(false);
+    try {
+      const result = await register(
+        formData.name,
+        formData.email,
+        formData.phone,
+        formData.password
+      );
+      
+      console.log('Register Result:', result); // Debug line
+      
+      setLoading(false);
 
-    if (result.success) {
-      navigate('/');
-    } else {
-      setErrors({ submit: result.message });
+      // Clear form after API completes
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+      });
+      setErrors({}); // Clear errors too
+
+      if (result && (result.success || result.token || result.data)) {
+        navigate('/');
+      } else if (result && result.message) {
+        setErrors({ submit: result.message });
+      }
+    } catch (error) {
+      console.error('Register Error:', error); // Debug line
+      setLoading(false);
+      
+      // Clear form even on error
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+      });
+      setErrors({ submit: 'Something went wrong. Please try again.' });
     }
   };
 
@@ -108,7 +136,8 @@ const Register = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.name ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="John Doe"
@@ -128,7 +157,8 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="your@email.com"
@@ -148,7 +178,8 @@ const Register = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="10-digit mobile number"
@@ -168,7 +199,8 @@ const Register = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.password ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -176,7 +208,8 @@ const Register = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  disabled={loading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 disabled:cursor-not-allowed"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -195,7 +228,8 @@ const Register = () => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -203,7 +237,8 @@ const Register = () => {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  disabled={loading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 disabled:cursor-not-allowed"
                 >
                   {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -214,7 +249,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>

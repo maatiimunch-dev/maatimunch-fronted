@@ -83,7 +83,7 @@ function App() {
             {/* ---------- Public Routes ---------- */}
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Register key="register" />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<ProductDetail />} />

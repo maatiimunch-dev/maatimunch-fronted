@@ -219,7 +219,13 @@
 // export default Login;
 
 
-// src/components/Auth/Login.jsx
+
+
+
+
+
+
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, Loader, Eye, EyeOff } from 'lucide-react';
@@ -272,6 +278,11 @@ const Login = () => {
     setLoading(false);
 
     if (result.success) {
+      // Clear form after successful login
+      setFormData({
+        email: '',
+        password: ''
+      });
       navigate('/');
     } else {
       setErrors({ submit: result.message });
@@ -305,7 +316,8 @@ const Login = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="your@email.com"
@@ -325,7 +337,8 @@ const Login = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
+                  disabled={loading}
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed ${
                     errors.password ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -333,7 +346,8 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  disabled={loading}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 disabled:cursor-not-allowed"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -346,7 +360,8 @@ const Login = () => {
                 <input
                   type="checkbox"
                   id="remember"
-                  className="w-4 h-4 text-[#6B2D5C] rounded focus:ring-[#6B2D5C]"
+                  disabled={loading}
+                  className="w-4 h-4 text-[#6B2D5C] rounded focus:ring-[#6B2D5C] disabled:cursor-not-allowed"
                 />
                 <label htmlFor="remember" className="ml-2 text-sm text-gray-700">
                   Remember me
@@ -363,7 +378,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -394,6 +409,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-

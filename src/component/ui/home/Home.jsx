@@ -326,8 +326,6 @@
 
 
 
-
-
 import React, { useState, useEffect, useRef } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
@@ -493,7 +491,7 @@ const Home = () => {
           alt="Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Main Content */}
@@ -515,9 +513,10 @@ const Home = () => {
                     : 'opacity-0 translate-x-full scale-95'
               } ${currentSlide !== slideIdx ? 'pointer-events-none' : ''}`}
             >
-              <div className="flex flex-col md:flex-row items-center justify-center h-full px-4 sm:px-6 md:px-12 lg:px-20 gap-8 md:gap-12">
-                {/* Product Images Section - 3D Cards */}
-                <div className="flex gap-4 sm:gap-6 md:gap-8 justify-center items-center w-full md:w-1/2">
+              <div className="flex flex-col items-center justify-center h-full px-4 gap-6 md:flex-row md:px-12 lg:px-20 md:gap-12">
+                
+                {/* Product Images Section - Mobile Optimized */}
+                <div className="flex gap-3 justify-center items-center w-full mt-16 md:w-1/2 md:gap-8 md:mt-0">
                   {slide.products.map((product, idx) => (
                     <div
                       key={idx}
@@ -525,12 +524,14 @@ const Home = () => {
                       data-aos-delay={idx * 150}
                       className="relative group transition-all duration-700 ease-out"
                       style={{
-                        transform: `perspective(1000px) rotateY(${(idx - 1) * 15}deg)`,
+                        transform: window.innerWidth >= 768 
+                          ? `perspective(1000px) rotateY(${(idx - 1) * 15}deg)` 
+                          : 'none',
                         transformStyle: 'preserve-3d'
                       }}
                     >
                       {/* 3D Product Package */}
-                      <div className="relative w-32 h-40 sm:w-36 sm:h-44 md:w-44 md:h-56 lg:w-52 lg:h-64 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-110 hover:rotate-0 hover:shadow-[0_25px_50px_-12px_rgba(251,191,36,0.5)] group-hover:animate-pulse-glow"
+                      <div className="relative w-24 h-32 rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-amber-500/50 md:w-44 md:h-56 md:rounded-2xl lg:w-52 lg:h-64"
                         style={{
                           transformStyle: 'preserve-3d',
                           transform: 'translateZ(20px)'
@@ -544,63 +545,54 @@ const Home = () => {
                         />
                         
                         {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 transition-opacity duration-500 group-hover:from-black/80"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
                         
                         {/* Brand Logo - Top */}
-                        <div className="absolute top-3 left-0 right-0 text-center transition-transform duration-500 group-hover:-translate-y-1">
-                          <div className="inline-block bg-white/95 px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                            <span className="text-[10px] sm:text-xs font-bold tracking-wider text-amber-600">
-                              MAATUMUNCH
+                        <div className="absolute top-2 left-0 right-0 text-center md:top-3">
+                          <div className="inline-block bg-white/95 px-2 py-1 rounded-full shadow-lg backdrop-blur-sm md:px-3 md:py-1.5">
+                            <span className="text-[8px] font-bold tracking-wider text-amber-600 md:text-xs">
+                              MAATIMUNCH
                             </span>
                           </div>
                         </div>
                         
                         {/* Product Name - Bottom */}
-                        <div className="absolute bottom-3 left-0 right-0 text-center px-2 transition-transform duration-500 group-hover:translate-y-1">
-                          <p className="text-white text-xs sm:text-sm md:text-base font-semibold drop-shadow-lg">
+                        <div className="absolute bottom-2 left-0 right-0 text-center px-1 md:bottom-3 md:px-2">
+                          <p className="text-white text-[10px] font-semibold drop-shadow-lg md:text-sm">
                             {product.name}
                           </p>
                         </div>
                         
                         {/* Shine Effect on Hover */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
-                        
-                        {/* 3D Depth Effect */}
-                        <div 
-                          className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"
-                          style={{
-                            transform: 'translateZ(1px)'
-                          }}
-                        ></div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Text Content Section */}
-                <div className="text-center md:text-left w-full md:w-1/2 space-y-4 md:space-y-6">
+                {/* Text Content Section - Mobile Optimized */}
+                <div className="text-center w-full space-y-3 px-4 md:text-left md:w-1/2 md:space-y-6 md:px-0">
                   <h1 
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-delay="200"
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                    className="text-2xl font-bold text-white leading-tight md:text-5xl lg:text-6xl"
                   >
                     {slide.title} <br />
                     <span className="text-amber-400 inline-block animate-glow">{slide.subtitle}</span>
                   </h1>
                   
                   <p 
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-delay="400"
-                    className="text-base sm:text-lg md:text-xl text-gray-200 max-w-xl mx-auto md:mx-0"
+                    className="text-sm text-gray-200 max-w-md mx-auto md:text-xl md:max-w-xl md:mx-0"
                   >
                     {slide.description}
                   </p>
                   
                   <button
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-delay="600"
-                   
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full text-base md:text-lg transition-all duration-500 hover:scale-110 shadow-lg hover:shadow-amber-500/50 hover:shadow-2xl relative overflow-hidden group cursor-pointer"
+                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-6 rounded-full text-sm transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-amber-500/50 relative overflow-hidden group cursor-pointer md:py-4 md:px-10 md:text-lg"
                     onClick={() => navigate("/shop")}
                   >
                     <span className="relative z-10">SHOP NOW</span>
@@ -612,7 +604,7 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows - Desktop */}
+        {/* Navigation Arrows - Desktop Only */}
         <button
           onClick={() => {
             goToPrevSlide();
@@ -639,16 +631,16 @@ const Home = () => {
           </svg>
         </button>
 
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
+        {/* Carousel Indicators - Mobile Optimized */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-20 md:bottom-8 md:gap-3">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => goToSlide(idx)}
               className={`transition-all duration-500 rounded-full ${
                 currentSlide === idx
-                  ? 'w-8 sm:w-10 md:w-12 h-2.5 sm:h-3 bg-amber-500 shadow-lg shadow-amber-500/50'
-                  : 'w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white/60 hover:bg-white hover:scale-125'
+                  ? 'w-8 h-2 bg-amber-500 shadow-lg shadow-amber-500/50 md:w-12 md:h-3'
+                  : 'w-2 h-2 bg-white/60 hover:bg-white hover:scale-125 md:w-3 md:h-3'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -667,21 +659,8 @@ const Home = () => {
           }
         }
 
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-          }
-          50% {
-            box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
-          }
-        }
-
         .animate-glow {
           animation: glow 3s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow {
-          animation: pulse-glow 2s ease-in-out infinite;
         }
       `}</style>
     </div>
