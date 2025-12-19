@@ -12,59 +12,59 @@ const Home = () => {
     {
       products: [
         { 
-          name: 'Blueberry', 
-          image: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&h=400&fit=crop'
+          name: 'Plain Makhana', 
+          image: 'https://images.unsplash.com/photo-1710421576768-ff985fa63b60?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFraGFuYXxlbnwwfHwwfHx8MA%3D%3D'
         },
         { 
-          name: 'Cranberries', 
-          image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop'
+          name: 'Peri Peri Makhana', 
+          image: 'https://img-cdn.publive.online/fit-in/1200x675/filters:format(webp)/sanjeev-kapoor/media/post_banners/0978533c3365cf1e4248f0532a2eed5d352cbe6ee05400e097667aaf9f5a8831.jpg'
         },
         { 
-          name: 'Apricots', 
-          image: 'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&h=400&fit=crop'
+          name: 'Pudina Makhana', 
+          image: 'https://www.indubenkhakhrawala.com/wp-content/uploads/2022/01/Mint-Makhna.jpg'
         }
       ],
-      title: 'Healthy, tasty, and ready',
-      subtitle: 'when cravings strike.',
-      description: 'Made with Nuts, Dried Fruits, Nuts and Berries!'
+      title: 'Crunchy, light, and guilt-free',
+      subtitle: 'snacking made healthy.',
+      description: 'Roasted Makhana - High in protein, low in calories!'
     },
     {
       products: [
         { 
-          name: 'Almonds', 
-          image: 'https://images.unsplash.com/photo-1508747703725-719777637510?w=400&h=400&fit=crop'
+          name: 'Cream & Onion Makhana', 
+          image: 'https://healthymaster.in/cdn/shop/files/6_772eac64-f531-469f-bed3-fdeaff941025.jpg?v=1747291756&width=1445'
         },
         { 
-          name: 'Pistachios', 
-          image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=400&fit=crop'
+          name: 'Cheese Makhana', 
+          image: 'https://fuzionnuts.in/cdn/shop/products/CheeseMakhana.jpg?v=1641892759'
         },
         { 
-          name: 'Cashews', 
-          image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=400&fit=crop'
+          name: 'Masala Makhana', 
+          image: 'https://thumbs.dreamstime.com/b/roasted-phool-makhana-crispy-lotus-pops-seed-124726518.jpg'
         }
       ],
-      title: 'Premium quality nuts',
-      subtitle: 'for every occasion.',
-      description: 'Roasted, salted, and perfectly crunchy!'
+      title: 'Flavourful makhana',
+      subtitle: 'for every taste bud.',
+      description: 'Perfectly seasoned and irresistibly crunchy!'
     },
     {
       products: [
         { 
-          name: 'Raisins', 
-          image: 'https://images.unsplash.com/photo-1598111388756-b2285cca0458?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFpc2lufGVufDB8fDB8fHww'
+          name: 'Caramel Makhana', 
+          image: 'https://t3.ftcdn.net/jpg/10/04/69/08/360_F_1004690825_6TdPQ9EzKZOL2Hjv7HVFRMK2ArRne16Y.jpg'
         },
         { 
-          name: 'Dates', 
-          image: 'https://plus.unsplash.com/premium_photo-1676208753932-6e8bc83a0b0d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGF0ZXN8ZW58MHx8MHx8fDA%3D'
+          name: 'Chocolate Makhana', 
+          image: 'https://5.imimg.com/data5/SELLER/Default/2025/3/499268574/KK/BY/CQ/223551349/50g-chocolate-makhana.png'
         },
         { 
-          name: 'Figs', 
-          image: 'https://images.unsplash.com/photo-1506851141243-46bb87f2576c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8'
+          name: 'Honey Roasted Makhana', 
+          image: 'https://www.kitchenathoskins.com/wp-content/uploads/2023/01/roasted-makhana-6.jpg'
         }
       ],
-      title: 'Natural sweetness',
-      subtitle: 'packed with energy.',
-      description: 'No added sugar, just pure goodness!'
+      title: 'Sweet makhana treats',
+      subtitle: 'indulge without worry.',
+      description: 'Deliciously sweet, naturally nutritious!'
     }
   ]
 

@@ -142,6 +142,7 @@ const ProductCard = ({ product }) => {
   const handleAddToCart = (e) => {
     e.stopPropagation();
     addToCart(product, 1);
+    alert('Product added to cart!');
   };
 
   const handleFavorite = (e) => {
@@ -197,7 +198,7 @@ const ProductCard = ({ product }) => {
 
         <button 
           onClick={handleAddToCart}
-          className="w-full bg-purple-900 text-white py-2.5 rounded-md font-semibold hover:bg-purple-800 transition-colors cursor-pointer"
+          className="w-full bg-purple-900 text-white py-2.5 rounded-md font-semibold hover:bg-purple-800 transition-colors cursor-pointer cursor-pointer"
         >
           Add to Cart
         </button>
