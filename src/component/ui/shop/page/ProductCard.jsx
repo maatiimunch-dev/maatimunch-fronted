@@ -71,7 +71,7 @@
 //         <div className="flex items-center justify-between mb-2">
 //           <span className="text-sm font-semibold text-gray-800">Maati Munch</span>
 //           <div className="flex items-center gap-2">
-//             <div className="flex items-center bg-purple-900 text-white px-2 py-1 rounded text-xs">
+//             <div className="flex items-center bg-[#6B2D5C] text-white px-2 py-1 rounded text-xs">
 //               <Star className="w-3 h-3 fill-white mr-1" />
 //               {product.rating}
 //             </div>
@@ -98,7 +98,7 @@
 //         {product.inStock ? (
 //           <button 
 //             onClick={handleAddToCart}
-//             className="w-full bg-purple-900 text-white py-2.5 rounded-md font-semibold hover:bg-purple-800 transition-colors cursor-pointer"
+//             className="w-full bg-[#6B2D5C] text-white py-2.5 rounded-md font-semibold hover:bg-[#6f4163] transition-colors cursor-pointer"
 //           >
 //             Add to Cart
 //           </button>
@@ -198,7 +198,7 @@ const ProductCard = ({ product }) => {
 
         <button 
           onClick={handleAddToCart}
-          className="w-full bg-purple-900 text-white py-2.5 rounded-md font-semibold hover:bg-purple-800 transition-colors cursor-pointer cursor-pointer"
+          className="w-full bg-[#6B2D5C] text-white py-2.5 rounded-md font-semibold hover:bg-[#6f4163] transition-colors cursor-pointer cursor-pointer"
         >
           Add to Cart
         </button>

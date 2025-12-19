@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useCart } from "../../../context/CartContext";
 import Logo from "../../../assets/Logo.png";
+import { RiMenu4Line } from "react-icons/ri";
 
 const topHeaderLinks = [
   { label: "Bulk Order", path: "/bulk-order" },
@@ -19,6 +20,7 @@ const topHeaderLinks = [
 ];
 
 const menuItems = [
+  { label: "Home", path: "/" },
   { label: "Shop", path: "/shop" },
   { label: "Blog", path: "/blog" },
   { label: "Contact Us", path: "/contact" },
@@ -72,13 +74,13 @@ const Navbar = () => {
       <div className="bg-black text-white text-xs md:text-sm px-4 py-2">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <span>📢 Free Shipping On Orders Above ₹1499/-</span>
-          <div className="hidden md:flex gap-4">
+          {/* <div className="hidden md:flex gap-4">
             {topHeaderLinks.map((l, i) => (
               <Link key={i} to={l.path} className="hover:underline">
                 {l.label}
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -108,7 +110,7 @@ const Navbar = () => {
 
           {/* MOBILE MENU */}
           <button className="md:hidden" onClick={() => setMobileMenu(!mobileMenu)}>
-            {mobileMenu ? <X /> : <Menu />}
+            {mobileMenu ? <X /> : <RiMenu4Line size={28} />}
           </button>
 
           {/* DESKTOP SEARCH */}
@@ -199,13 +201,40 @@ const Navbar = () => {
         </div>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex justify-center bg-black text-white text-sm">
-          {menuItems.map((item, i) => (
-            <Link key={i} to={item.path} className="px-4 py-3 hover:bg-gray-800">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+ <nav className="hidden md:flex justify-center bg-black text-white text-sm">
+  {menuItems.map((item, i) => {
+    const isActive = location.pathname === item.path;
+
+    return (
+      <Link
+        key={i}
+        to={item.path}
+        className="relative px-5 py-3 font-medium group"
+      >
+        {/* Text */}
+        <span
+          className={`relative z-10 ${
+            isActive ? "text-yellow-400" : "text-white"
+          }`}
+        >
+          {item.label}
+        </span>
+
+        {/* Centered underline */}
+        <span
+          className={`
+            absolute left-1/2 -translate-x-1/2 bottom-[6px]
+            h-[2px] bg-[#FFA500]
+            transition-all duration-300 ease-out
+            ${isActive ? "w-6" : "w-0 group-hover:w-10"}
+          `}
+        />
+      </Link>
+    );
+  })}
+</nav>
+
+
       </header>
 
       {/* 📱 MOBILE SLIDE MENU */}

@@ -33,7 +33,7 @@
 //             <p className="text-gray-600 mb-6">Add some products to checkout!</p>
 //             <button
 //               onClick={() => navigate('/')}
-//               className="bg-purple-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+//               className="bg-[#6B2D5C] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
 //             >
 //               Start Shopping
 //             </button>
@@ -116,7 +116,7 @@
 //               {/* Delivery Address */}
 //               <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
 //                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                   <MapPin className="w-5 h-5 text-purple-900" />
+//                   <MapPin className="w-5 h-5 text-[#6B2D5C]" />
 //                   Delivery Address
 //                 </h2>
 
@@ -235,7 +235,7 @@
 //               {/* Payment Method */}
 //               <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
 //                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//                   <CreditCard className="w-5 h-5 text-purple-900" />
+//                   <CreditCard className="w-5 h-5 text-[#6B2D5C]" />
 //                   Payment Method
 //                 </h2>
 
@@ -386,7 +386,7 @@ const Checkout = () => {
             <p className="text-gray-600 mb-6">Add some products to checkout!</p>
             <button
               onClick={() => navigate('/')}
-              className="bg-purple-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+              className="bg-[#6B2D5C] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
             >
               Start Shopping
             </button>
@@ -579,7 +579,7 @@ const Checkout = () => {
               {/* Delivery Address */}
               <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-purple-900" />
+                  <MapPin className="w-5 h-5 text-[#6B2D5C]" />
                   Delivery Address
                 </h2>
 
@@ -698,7 +698,7 @@ const Checkout = () => {
               {/* Payment Method */}
               <div className="bg-white rounded-lg shadow-md p-4 md:p-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <CreditCard className="w-5 h-5 text-purple-900" />
+                  <CreditCard className="w-5 h-5 text-[#6B2D5C]" />
                   Payment Method
                 </h2>
 

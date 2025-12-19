@@ -62,6 +62,7 @@ import BlogDetail from "./component/ui/blog/BlogDetail";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import Register from "./component/ui/login/Register";
+import Contact from "./component/ui/contact/Contact";
 
 /* =========================
    🔐 Protected Route
@@ -88,6 +89,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="/contact" element={<Contact />} />
 
             {/* ---------- Protected Routes ---------- */}
             <Route

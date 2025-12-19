@@ -93,7 +93,7 @@ const Products = () => {
         </h3>
         <button
           onClick={resetFilters}
-          className="text-purple-900 hover:text-purple-700 font-medium text-sm"
+          className="text-[#6B2D5C] hover:text-[#a86a99] font-medium text-sm"
         >
           Clear All
         </button>
@@ -141,7 +141,7 @@ const Products = () => {
             type="checkbox"
             checked={filters.bestSeller}
             onChange={(e) => setFilters(prev => ({ ...prev, bestSeller: e.target.checked }))}
-            className="w-4 h-4 text-purple-900 rounded"
+            className="w-4 h-4 text-[#6B2D5C] rounded"
           />
           <span className="text-gray-700">Best Seller</span>
         </label>
@@ -153,7 +153,7 @@ const Products = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <Loader className="animate-spin mx-auto mb-4 text-purple-900" size={40} />
+          <Loader className="animate-spin mx-auto mb-4 text-[#6B2D5C]" size={40} />
           <p className="text-gray-600">Loading products...</p>
         </div>
       </div>
@@ -167,7 +167,7 @@ const Products = () => {
           <p className="text-red-600 mb-4">{error}</p>
           <button
             onClick={fetchProducts}
-            className="bg-purple-900 text-white px-6 py-2 rounded-md hover:bg-purple-800"
+            className="bg-[#6B2D5C] text-white px-6 py-2 rounded-md hover:bg-[#a86a99]"
           >
             Retry
           </button>
@@ -179,10 +179,10 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-900 to-purple-700 text-white py-16">
+      <div className=" text-gray-800 py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Premium Dry Fruits & Nuts</h1>
-          <p className="text-purple-100">Handpicked quality products for your health</p>
+          <p className="">Handpicked quality products for your health</p>
         </div>
       </div>
 
@@ -237,7 +237,7 @@ const Products = () => {
                 <p className="text-gray-500 mb-4">Try adjusting your filters</p>
                 <button
                   onClick={resetFilters}
-                  className="bg-purple-900 text-white px-6 py-2 rounded-md hover:bg-purple-800"
+                  className="bg-[#6B2D5C] text-white px-6 py-2 rounded-md hover:bg-[#a86a99]"
                 >
                   Clear Filters
                 </button>

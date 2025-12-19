@@ -31,19 +31,19 @@
           
 //           <div className="bg-purple-50 rounded-lg p-4 mb-6">
 //             <p className="text-sm text-gray-600 mb-1">Order ID</p>
-//             <p className="text-xl font-bold text-purple-900">{orderDetails.orderId}</p>
+//             <p className="text-xl font-bold text-[#6B2D5C]">{orderDetails.orderId}</p>
 //           </div>
 
 //           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 //             <button
 //               onClick={() => navigate('/')}
-//               className="bg-purple-900 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+//               className="bg-[#6B2D5C] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
 //             >
 //               Continue Shopping
 //             </button>
 //             <button
 //               onClick={() => navigate('/track-order')}
-//               className="bg-white border-2 border-purple-900 text-purple-900 px-6 py-3 rounded-md font-semibold hover:bg-purple-50 transition-colors"
+//               className="bg-white border-2 border-[#6B2D5C] text-[#6B2D5C] px-6 py-3 rounded-md font-semibold hover:bg-purple-50 transition-colors"
 //             >
 //               Track Order
 //             </button>
@@ -53,7 +53,7 @@
 //         {/* Order Details */}
 //         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
 //           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//             <Package className="w-5 h-5 text-purple-900" />
+//             <Package className="w-5 h-5 text-[#6B2D5C]" />
 //             Order Details
 //           </h2>
 
@@ -95,7 +95,7 @@
 //         {/* Delivery Address */}
 //         <div className="bg-white rounded-lg shadow-lg p-6">
 //           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-//             <MapPin className="w-5 h-5 text-purple-900" />
+//             <MapPin className="w-5 h-5 text-[#6B2D5C]" />
 //             Delivery Address
 //           </h2>
 
@@ -191,11 +191,11 @@ const OrderSuccess = () => {
           
           <div className="bg-purple-50 rounded-lg p-4 mb-6">
             <p className="text-sm text-gray-600 mb-1">Order ID</p>
-            <p className="text-xl font-bold text-purple-900">{orderDetails.orderId}</p>
+            <p className="text-xl font-bold text-[#6B2D5C]">{orderDetails.orderId}</p>
             {orderDetails.paymentId && (
               <>
                 <p className="text-sm text-gray-600 mb-1 mt-3">Payment ID</p>
-                <p className="text-lg font-semibold text-purple-800">{orderDetails.paymentId}</p>
+                <p className="text-lg font-semibold text-[#6f4163]">{orderDetails.paymentId}</p>
               </>
             )}
           </div>
@@ -203,7 +203,7 @@ const OrderSuccess = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => navigate('/')}
-              className="bg-purple-900 text-white px-6 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+              className="bg-[#6B2D5C] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
             >
               Continue Shopping
             </button>
@@ -213,7 +213,7 @@ const OrderSuccess = () => {
         {/* Order Details */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Package className="w-5 h-5 text-purple-900" />
+            <Package className="w-5 h-5 text-[#6B2D5C]" />
             Order Details
           </h2>
 
@@ -258,7 +258,7 @@ const OrderSuccess = () => {
         {/* Delivery Address */}
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-purple-900" />
+            <MapPin className="w-5 h-5 text-[#6B2D5C]" />
             Delivery Address
           </h2>
 

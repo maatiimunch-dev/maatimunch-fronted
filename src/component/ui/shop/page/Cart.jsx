@@ -29,7 +29,7 @@
 //             <p className="text-gray-600 mb-6">Add some products to get started!</p>
 //             <button
 //               onClick={() => navigate('/')}
-//               className="bg-purple-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+//               className="bg-[#6B2D5C] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
 //             >
 //               Start Shopping
 //             </button>
@@ -74,7 +74,7 @@
 //                       {/* Product Details */}
 //                       <div className="flex-1 min-w-0">
 //                         <h3 
-//                           className="font-semibold text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-purple-900"
+//                           className="font-semibold text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-[#6B2D5C]"
 //                           onClick={() => navigate(`/product/${item.id}`)}
 //                         >
 //                           {item.name}
@@ -217,7 +217,7 @@ const Cart = () => {
             <p className="text-gray-600 mb-6">Add some products to get started!</p>
             <button
               onClick={() => navigate('/')}
-              className="bg-purple-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors"
+              className="bg-[#6B2D5C] text-white px-8 py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors"
             >
               Start Shopping
             </button>
@@ -264,7 +264,7 @@ const Cart = () => {
                       {/* Product Details */}
                       <div className="flex-1 min-w-0">
                         <h3 
-                          className="font-semibold text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-purple-900"
+                          className="font-semibold text-gray-900 mb-2 line-clamp-2 cursor-pointer hover:text-[#6B2D5C]"
                           onClick={() => navigate(`/product/${item._id || item.id}`)}
                         >
                           {item.name}

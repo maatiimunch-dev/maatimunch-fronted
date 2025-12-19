@@ -108,7 +108,7 @@ const Register = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.name ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="John Doe"
@@ -128,7 +128,7 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="your@email.com"
@@ -148,7 +148,7 @@ const Register = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="10-digit mobile number"
@@ -168,7 +168,7 @@ const Register = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.password ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -195,7 +195,7 @@ const Register = () => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -214,7 +214,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-900 text-white py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -232,7 +232,7 @@ const Register = () => {
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="text-purple-900 hover:text-purple-700 font-semibold"
+                className="text-[#6B2D5C] hover:text-[#6f4163] font-semibold"
               >
                 Login
               </Link>

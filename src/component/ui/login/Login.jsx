@@ -305,7 +305,7 @@ const Login = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-3 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="your@email.com"
@@ -325,7 +325,7 @@ const Login = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-purple-900 focus:border-transparent ${
+                  className={`w-full pl-10 pr-10 py-2 border rounded-md focus:ring-2 focus:ring-[#6B2D5C] focus:border-transparent ${
                     errors.password ? 'border-red-500' : 'border-gray-300'
                   }`}
                   placeholder="••••••••"
@@ -346,7 +346,7 @@ const Login = () => {
                 <input
                   type="checkbox"
                   id="remember"
-                  className="w-4 h-4 text-purple-900 rounded focus:ring-purple-900"
+                  className="w-4 h-4 text-[#6B2D5C] rounded focus:ring-[#6B2D5C]"
                 />
                 <label htmlFor="remember" className="ml-2 text-sm text-gray-700">
                   Remember me
@@ -354,7 +354,7 @@ const Login = () => {
               </div>
               <Link
                 to="/forgot-password"
-                className="text-sm text-purple-900 hover:text-purple-700 font-medium"
+                className="text-sm text-[#6B2D5C] hover:text-[#6f4163] font-medium"
               >
                 Forgot password?
               </Link>
@@ -363,7 +363,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-900 text-white py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -381,7 +381,7 @@ const Login = () => {
               Don't have an account?{' '}
               <Link
                 to="/register"
-                className="text-purple-900 hover:text-purple-700 font-semibold"
+                className="text-[#6B2D5C] hover:text-[#6f4163] font-semibold"
               >
                 Create one
               </Link>

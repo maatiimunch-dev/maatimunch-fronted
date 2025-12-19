@@ -23,7 +23,7 @@
 //           <h2 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h2>
 //           <button 
 //             onClick={() => navigate('/')}
-//             className="bg-purple-900 text-white px-6 py-2 rounded-md"
+//             className="bg-[#6B2D5C] text-white px-6 py-2 rounded-md"
 //           >
 //             Go Back
 //           </button>
@@ -79,7 +79,7 @@
 //                     key={idx}
 //                     onClick={() => setSelectedImage(idx)}
 //                     className={`border-2 rounded-lg p-2 w-16 h-16 md:w-20 md:h-20 flex-shrink-0 transition-all ${
-//                       selectedImage === idx ? 'border-purple-900' : 'border-gray-200'
+//                       selectedImage === idx ? 'border-[#6B2D5C]' : 'border-gray-200'
 //                     }`}
 //                   >
 //                     <img src={img} alt="" className="w-full h-full object-contain" />
@@ -110,7 +110,7 @@
 
 //               {/* Rating */}
 //               <div className="flex items-center gap-3 mb-4">
-//                 <div className="flex items-center bg-purple-900 text-white px-3 py-1 rounded">
+//                 <div className="flex items-center bg-[#6B2D5C] text-white px-3 py-1 rounded">
 //                   <Star className="w-4 h-4 fill-white mr-1" />
 //                   {product.rating}
 //                 </div>
@@ -152,7 +152,7 @@
 //               <div className="flex flex-col md:flex-row gap-3 mb-6">
 //                 <button 
 //                   onClick={handleAddToCart}
-//                   className="flex-1 bg-purple-900 text-white py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+//                   className="flex-1 bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors flex items-center justify-center gap-2 cursor-pointer"
 //                 >
 //                   <ShoppingCart className="w-5 h-5" />
 //                   Add to Cart
@@ -266,7 +266,7 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen bg-gray-50 py-8 px-4 flex items-center justify-center">
         <div className="text-center">
-          <Loader className="w-12 h-12 text-purple-900 animate-spin mx-auto mb-4" />
+          <Loader className="w-12 h-12 text-[#6B2D5C] animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Loading product details...</p>
         </div>
       </div>
@@ -281,7 +281,7 @@ const ProductDetail = () => {
           <p className="text-gray-600 mb-6">{error}</p>
           <button 
             onClick={() => navigate('/')}
-            className="bg-purple-900 text-white px-6 py-2 rounded-md hover:bg-purple-800"
+            className="bg-[#6B2D5C] text-white px-6 py-2 rounded-md hover:bg-[#6f4163]"
           >
             Go Back
           </button>
@@ -335,7 +335,7 @@ const ProductDetail = () => {
                       key={idx}
                       onClick={() => setSelectedImage(idx)}
                       className={`border-2 rounded-lg p-2 w-16 h-16 md:w-20 md:h-20 flex-shrink-0 transition-all ${
-                        selectedImage === idx ? 'border-purple-900' : 'border-gray-200'
+                        selectedImage === idx ? 'border-[#6B2D5C]' : 'border-gray-200'
                       }`}
                     >
                       <img 
@@ -399,7 +399,7 @@ const ProductDetail = () => {
               <div className="flex flex-col md:flex-row gap-3 mb-6">
                 <button 
                   onClick={handleAddToCart}
-                  className="flex-1 bg-purple-900 text-white py-3 rounded-md font-semibold hover:bg-purple-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="flex-1 bg-[#6B2D5C] text-white py-3 rounded-md font-semibold hover:bg-[#6f4163] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ShoppingCart className="w-5 h-5" />
                   Add to Cart
