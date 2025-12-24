@@ -63,6 +63,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import Register from "./component/ui/login/Register";
 import Contact from "./component/ui/contact/Contact";
+import MyOrders from "./component/ui/myOrder/MyOrders";
 
 /* =========================
    🔐 Protected Route
@@ -113,6 +114,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <OrderSuccess />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/my-orders"
+              element={
+                <ProtectedRoute>
+                  <MyOrders />
                 </ProtectedRoute>
               }
             />

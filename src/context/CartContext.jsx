@@ -1,4 +1,4 @@
-// src/context/CartContext.jsx
+// src/context/CartContext.jsx - COMPLETE UPDATED VERSION
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import api from '../utils/api';
 
@@ -11,38 +11,81 @@ export const CartProvider = ({ children }) => {
   // Component mount hone pe cart fetch karo
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    const user = localStorage.getItem('user');
+    
+    if (token && user) {
       fetchCart();
     }
   }, []);
 
+  // Get user ID safely
+  const getUserId = () => {
+    try {
+      const userStr = localStorage.getItem('user');
+      if (!userStr) return null;
+      
+      const user = JSON.parse(userStr);
+      return user?._id || user?.id || null;
+    } catch (error) {
+      console.error('Error parsing user data:', error);
+      return null;
+    }
+  };
+
   // Backend se cart fetch karo
   const fetchCart = async () => {
     try {
-      const user = JSON.parse(localStorage.getItem('user'));
-      if (!user || !user._id) return;
-
-      const response = await api.get(`/products/${user._id}`);
+      const token = localStorage.getItem('token');
+      const userId = getUserId();
       
+      if (!token || !userId) {
+        setCart([]);
+        return;
+      }
+
+      console.log('Fetching cart for userId:', userId);
+
+      // Backend route: GET /products/:userId
+      const response = await api.get(`/products/${userId}`);
+      
+      console.log('Cart response:', response.data);
+
+      if (!response.data.success) {
+        setCart([]);
+        return;
+      }
+
       // Backend response ko frontend format me convert karo
       const cartItems = response.data.cart || [];
-      const formattedCart = cartItems.map(item => ({
-        _id: item.productId._id,
-        id: item.productId._id, // compatibility ke liye
-        name: item.productId.name,
-        price: item.productId.price,
-        image: item.productId.images?.[0]?.url || '/placeholder-image.jpg',
-        images: item.productId.images,
-        description: item.productId.description,
-        bestSeller: item.productId.bestSeller,
-        quantity: item.quantity
-      }));
       
+      const formattedCart = cartItems.map(item => {
+        const productData = item.productId;
+        
+        return {
+          _id: productData._id,
+          id: productData._id,
+          name: productData.name,
+          price: productData.price,
+          image: productData.images?.[0]?.url || '/placeholder-image.jpg',
+          images: productData.images || [],
+          description: productData.description || '',
+          bestSeller: productData.bestSeller || false,
+          quantity: item.quantity
+        };
+      });
+      
+      console.log('Formatted cart:', formattedCart);
       setCart(formattedCart);
+      
     } catch (error) {
       console.error('Error fetching cart:', error);
-      // Agar error aaye to empty cart set karo
-      setCart([]);
+      
+      // Agar 404 ya empty cart hai to quietly handle karo
+      if (error.response?.status === 404 || error.response?.status === 400) {
+        setCart([]);
+      } else {
+        console.error('Cart fetch failed:', error.response?.data);
+      }
     }
   };
 
@@ -50,46 +93,52 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (product, quantity = 1) => {
     try {
       const token = localStorage.getItem('token');
+      const userId = getUserId();
       
-      // Agar user logged in nahi hai, to local storage me save karo
-      if (!token) {
-        setCart(prev => {
-          const existing = prev.find(item => item._id === product._id);
-          if (existing) {
-            return prev.map(item =>
-              item._id === product._id
-                ? { ...item, quantity: item.quantity + quantity }
-                : item
-            );
-          }
-          return [...prev, { 
-            ...product, 
-            id: product._id,
-            image: product.images?.[0]?.url || '/placeholder-image.jpg',
-            quantity 
-          }];
-        });
-        
-        // Success message
-        alert('Product added to cart!');
+      // Agar user logged in nahi hai
+      if (!token || !userId) {
+        alert('Please login to add items to cart');
+        window.location.href = '/login';
         return;
       }
 
-      // Backend API call
       setLoading(true);
-      await api.post('/products/add-to-cart', {
-        productId: product._id,
+
+      console.log('Adding to cart:', { 
+        userId, 
+        productId: product._id || product.id, 
+        quantity 
+      });
+
+      // Backend expects: { userId, productId, quantity }
+      const response = await api.post('/products/add-to-cart', {
+        userId: userId,
+        productId: product._id || product.id,
         quantity: quantity
       });
 
-      // Cart refresh karo
-      await fetchCart();
+      console.log('Add to cart response:', response.data);
+
+      // Success response check karo
+      if (response.data.success || response.status === 200) {
+        // Cart refresh karo
+        await fetchCart();
+        alert('Product added to cart successfully!');
+      }
       
-      // Success message
-      alert('Product added to cart!');
     } catch (error) {
       console.error('Error adding to cart:', error);
-      alert('Failed to add product to cart. Please try again.');
+      
+      // Detailed error handling
+      if (error.response) {
+        const errorMsg = error.response.data?.message || 'Failed to add product to cart';
+        alert(errorMsg);
+        console.error('Backend error:', error.response.data);
+      } else if (error.request) {
+        alert('Network error. Please check your connection.');
+      } else {
+        alert('Failed to add product to cart. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -99,21 +148,30 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (productId) => {
     try {
       const token = localStorage.getItem('token');
+      const userId = getUserId();
       
-      // Agar user logged in nahi hai
-      if (!token) {
-        setCart(prev => prev.filter(item => item._id !== productId && item.id !== productId));
+      if (!token || !userId) {
+        setCart(prev => prev.filter(item => 
+          item._id !== productId && item.id !== productId
+        ));
         return;
       }
 
-      // Backend API call
       setLoading(true);
+      
+      console.log('Removing from cart:', { userId, productId });
+
+      // Backend expects: { userId, productId }
       await api.delete('/products/remove', {
-        data: { productId }
+        data: { 
+          userId: userId,
+          productId: productId
+        }
       });
 
       // Cart refresh karo
       await fetchCart();
+      
     } catch (error) {
       console.error('Error removing from cart:', error);
       alert('Failed to remove product. Please try again.');
@@ -131,9 +189,9 @@ export const CartProvider = ({ children }) => {
 
     try {
       const token = localStorage.getItem('token');
+      const userId = getUserId();
       
-      // Agar user logged in nahi hai
-      if (!token) {
+      if (!token || !userId) {
         setCart(prev =>
           prev.map(item => 
             (item._id === productId || item.id === productId) 
@@ -144,15 +202,20 @@ export const CartProvider = ({ children }) => {
         return;
       }
 
-      // Backend API call
       setLoading(true);
+      
+      console.log('Updating quantity:', { userId, productId, quantity });
+
+      // Backend expects: { userId, productId, quantity }
       await api.put('/products/update', {
-        productId,
-        quantity
+        userId: userId,
+        productId: productId,
+        quantity: quantity
       });
 
       // Cart refresh karo
       await fetchCart();
+      
     } catch (error) {
       console.error('Error updating quantity:', error);
       alert('Failed to update quantity. Please try again.');
@@ -165,18 +228,24 @@ export const CartProvider = ({ children }) => {
   const clearCart = async () => {
     try {
       const token = localStorage.getItem('token');
+      const userId = getUserId();
       
-      // Agar user logged in nahi hai
-      if (!token) {
+      if (!token || !userId) {
         setCart([]);
         return;
       }
 
-      // Backend API call
       setLoading(true);
-      await api.delete('/products/clear');
+      
+      console.log('Clearing cart for userId:', userId);
+
+      // Backend expects: { userId }
+      await api.delete('/products/clear', {
+        data: { userId: userId }
+      });
       
       setCart([]);
+      
     } catch (error) {
       console.error('Error clearing cart:', error);
       // Error pe bhi cart clear kar do
@@ -202,7 +271,7 @@ export const CartProvider = ({ children }) => {
       cartCount, 
       cartTotal,
       loading,
-      fetchCart // Cart refresh karne ke liye
+      fetchCart
     }}>
       {children}
     </CartContext.Provider>

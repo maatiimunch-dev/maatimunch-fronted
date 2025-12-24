@@ -123,7 +123,7 @@
 import React, { useState } from 'react';
 import { Heart, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../../../context/CartContext';
 
 const ProductCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
