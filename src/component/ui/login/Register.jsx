@@ -74,7 +74,7 @@ const Register = () => {
         formData.password
       );
       
-      console.log('Register Result:', result); // Debug line
+      
       
       setLoading(false);
 

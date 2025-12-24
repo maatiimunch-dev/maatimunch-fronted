@@ -43,12 +43,12 @@ export const CartProvider = ({ children }) => {
         return;
       }
 
-      console.log('Fetching cart for userId:', userId);
+    
 
       // Backend route: GET /products/:userId
       const response = await api.get(`/products/${userId}`);
       
-      console.log('Cart response:', response.data);
+    
 
       if (!response.data.success) {
         setCart([]);
@@ -74,7 +74,7 @@ export const CartProvider = ({ children }) => {
         };
       });
       
-      console.log('Formatted cart:', formattedCart);
+      
       setCart(formattedCart);
       
     } catch (error) {
@@ -104,11 +104,11 @@ export const CartProvider = ({ children }) => {
 
       setLoading(true);
 
-      console.log('Adding to cart:', { 
-        userId, 
-        productId: product._id || product.id, 
-        quantity 
-      });
+      // console.log('Adding to cart:', { 
+      //   userId, 
+      //   productId: product._id || product.id, 
+      //   quantity 
+      // });
 
       // Backend expects: { userId, productId, quantity }
       const response = await api.post('/products/add-to-cart', {
@@ -117,7 +117,7 @@ export const CartProvider = ({ children }) => {
         quantity: quantity
       });
 
-      console.log('Add to cart response:', response.data);
+      
 
       // Success response check karo
       if (response.data.success || response.status === 200) {
@@ -159,7 +159,7 @@ export const CartProvider = ({ children }) => {
 
       setLoading(true);
       
-      console.log('Removing from cart:', { userId, productId });
+      // console.log('Removing from cart:', { userId, productId });
 
       // Backend expects: { userId, productId }
       await api.delete('/products/remove', {
@@ -204,7 +204,7 @@ export const CartProvider = ({ children }) => {
 
       setLoading(true);
       
-      console.log('Updating quantity:', { userId, productId, quantity });
+      // console.log('Updating quantity:', { userId, productId, quantity });
 
       // Backend expects: { userId, productId, quantity }
       await api.put('/products/update', {
@@ -237,7 +237,7 @@ export const CartProvider = ({ children }) => {
 
       setLoading(true);
       
-      console.log('Clearing cart for userId:', userId);
+      // console.log('Clearing cart for userId:', userId);
 
       // Backend expects: { userId }
       await api.delete('/products/clear', {
