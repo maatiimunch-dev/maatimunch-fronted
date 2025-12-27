@@ -64,6 +64,11 @@ import { CartProvider } from "./context/CartContext";
 import Register from "./component/ui/login/Register";
 import Contact from "./component/ui/contact/Contact";
 import MyOrders from "./component/ui/myOrder/MyOrders";
+import AboutUs from "./component/ui/about/AboutUs";
+import PrivacyPolicy from "./component/ui/policies/PrivacyPolicy";
+import ShippingPolicy from "./component/ui/policies/ShippingPolicy";
+import TermsConditions from "./component/ui/policies/TermsConditions";
+import CancellationRefundPolicy from "./component/ui/policies/CancellationRefundPolicy";
 
 /* =========================
    🔐 Protected Route
@@ -91,6 +96,11 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/privacy policy" element={<PrivacyPolicy />} />
+            <Route path="/shipping policy" element={<ShippingPolicy />} />
+            <Route path="/terms conditions" element={<TermsConditions />} />
+            <Route path="/cancellation-refund-policy" element={<CancellationRefundPolicy />} />
 
             {/* ---------- Protected Routes ---------- */}
             <Route

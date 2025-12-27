@@ -11,12 +11,6 @@ import Logo from "../../../assets/Logo.png";
 const footerLinks = {
   company: [
     { name: "About Us", path: "/about" },
-    { name: "Leadership", path: "/leadership" },
-    { name: "Certifications", path: "/certifications" },
-  ],
-  expertise: [
-    { name: "Private Label", path: "/private-label" },
-    { name: "Quality & Safety", path: "/quality-safety" },
   ],
   quickLinks: [
     { name: "Blog", path: "/blog" },
@@ -24,22 +18,15 @@ const footerLinks = {
     { name: "Bulk Order", path: "/bulk-order" },
     { name: "Contact Us", path: "/contact" },
   ],
-  offices: ["Delhi"],
-  partners: [
-    "Amazon",
-    "Flipkart",
-    "Jiomart",
-    "DMart",
-    "BigBasket",
-    "Paytm",
-    "Reliance Retail",
-    "Grofers",
-    "Paytm Mall",
-    "LOTS",
-    "Swiggy Instamart",
-    "ITC",
+  policies: [
+    { name: "Cancellation & Refund Policy", path: "/cancellation-refund-policy" },
+    { name: "Terms & Conditions", path: "/terms conditions" },
+    { name: "Shipping & Delivery Policy", path: "/shipping policy" },
+    { name: "Privacy Policy", path: "/privacy policy" },
   ],
+  offices: ["Delhi"],
 };
+
 
 const Footer = () => {
   return (
@@ -95,69 +82,62 @@ const Footer = () => {
         <hr className="my-12 border-gray-700" />
 
         {/* Bottom Links */}
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 text-sm">
-          {/* Company */}
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            {footerLinks.company.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block text-gray-400 hover:text-white mb-2"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
+  
+  {/* Company */}
+  <div>
+    <h4 className="font-semibold mb-4">Company</h4>
+    {footerLinks.company.map((item) => (
+      <Link
+        key={item.name}
+        to={item.path}
+        className="block text-gray-400 hover:text-white mb-2"
+      >
+        {item.name}
+      </Link>
+    ))}
+  </div>
 
-          {/* Expertise */}
-          <div>
-            <h4 className="font-semibold mb-4">Our Expertise</h4>
-            {footerLinks.expertise.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block text-gray-400 hover:text-white mb-2"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+  {/* Quick Links */}
+  <div>
+    <h4 className="font-semibold mb-4">Quick Links</h4>
+    {footerLinks.quickLinks.map((item) => (
+      <Link
+        key={item.name}
+        to={item.path}
+        className="block text-gray-400 hover:text-white mb-2"
+      >
+        {item.name}
+      </Link>
+    ))}
+  </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            {footerLinks.quickLinks.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block text-gray-400 hover:text-white mb-2"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+  {/* Policies */}
+  <div>
+    <h4 className="font-semibold mb-4">Policies</h4>
+    {footerLinks.policies.map((item) => (
+      <Link
+        key={item.name}
+        to={item.path}
+        className="block text-gray-400 hover:text-white mb-2"
+      >
+        {item.name}
+      </Link>
+    ))}
+  </div>
 
-          {/* Offices */}
-          <div>
-            <h4 className="font-semibold mb-4">Our Regional Offices</h4>
-            {footerLinks.offices.map((city) => (
-              <p key={city} className="text-gray-400 mb-2">
-                {city}
-              </p>
-            ))}
-          </div>
+  {/* Offices */}
+  <div>
+    <h4 className="font-semibold mb-4">Our Regional Offices</h4>
+    {footerLinks.offices.map((city) => (
+      <p key={city} className="text-gray-400 mb-2">
+        {city}
+      </p>
+    ))}
+  </div>
 
-          {/* Partners */}
-          {/* <div>
-            <h4 className="font-semibold mb-4">Our Partners</h4>
-            {footerLinks.partners.map((partner) => (
-              <p key={partner} className="text-gray-400 mb-2">
-                {partner}
-              </p>
-            ))}
-          </div> */}
-        </div>
+</div>
+
       </footer>
 
     </>
