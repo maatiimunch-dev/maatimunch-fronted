@@ -450,7 +450,7 @@ const Checkout = () => {
     }
 
     const options = {
-      key: 'rzp_test_RsLcd6kPaDcNq1',
+      key: 'rzp_live_RytU6uLzprv3Kz',
       amount: orderData.amount,
       currency: orderData.currency,
       name: 'Maati Munch',
