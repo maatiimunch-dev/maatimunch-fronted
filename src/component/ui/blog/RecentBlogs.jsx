@@ -65,6 +65,7 @@ const RecentBlogs = () => {
               <img
                 src={blog.image}
                 alt={blog.title}
+                loading="lazy"
                 className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
               />
             </Link>

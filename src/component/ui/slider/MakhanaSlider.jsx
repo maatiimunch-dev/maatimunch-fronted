@@ -92,6 +92,7 @@ const MakhanaSlider = () => {
                 <img
                   src={p.image}
                   alt={p.name}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                   draggable={false}
                 />

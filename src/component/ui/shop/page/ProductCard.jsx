@@ -169,6 +169,7 @@ const ProductCard = ({ product }) => {
         <img 
           src={productImage} 
           alt={product.name}
+          loading='lazy'
           className="max-h-full max-w-full object-contain"
           onError={(e) => {
             e.target.src = '/placeholder-image.jpg';

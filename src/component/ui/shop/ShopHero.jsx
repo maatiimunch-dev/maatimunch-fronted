@@ -66,6 +66,7 @@ const ShopHero = () => {
             key={index}
             src={img}
             alt="Shop Banner"
+            loading="lazy"
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1200ms] ease-in-out
               ${index === currentIndex ? "opacity-100 scale-110" : "opacity-0 scale-100"}
             `}

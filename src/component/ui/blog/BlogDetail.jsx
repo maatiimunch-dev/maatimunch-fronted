@@ -154,6 +154,7 @@ const BlogDetail = () => {
             <img
               src={blog.image.url}
               alt={blog.title || 'Blog image'}
+              loading='lazy'
               className="w-full h-full object-cover"
               onError={(e) => {
                 e.target.onerror = null;

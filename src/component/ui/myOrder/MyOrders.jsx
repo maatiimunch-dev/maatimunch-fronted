@@ -270,6 +270,7 @@ const MyOrders = () => {
                             <img
                               src={item.productId?.images?.[0]?.url || '/placeholder-image.jpg'}
                               alt={item.name}
+                              loading='lazy'
                               className="w-16 h-16 object-contain bg-gray-50 rounded"
                               onError={(e) => {
                                 e.target.src = '/placeholder-image.jpg';

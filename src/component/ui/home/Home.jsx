@@ -488,6 +488,7 @@ const Home = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={Banner}
+          loading='lazy'
           alt="Background"
           className="w-full h-full object-cover"
         />

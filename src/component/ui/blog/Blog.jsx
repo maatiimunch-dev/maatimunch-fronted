@@ -122,6 +122,7 @@ const Blog = () => {
                   <img
                     src={blog.image?.url || 'https://via.placeholder.com/400x300?text=Blog+Image'}
                     alt={blog.title}
+                    loading='lazy'
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/400x300?text=Blog+Image';

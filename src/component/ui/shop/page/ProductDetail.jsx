@@ -340,7 +340,8 @@ const ProductDetail = () => {
                     >
                       <img 
                         src={img} 
-                        alt="" 
+                        alt={product.name} 
+                        loading='lazy'
                         className="w-full h-full object-contain"
                         onError={(e) => {
                           e.target.src = '/placeholder-image.jpg';
