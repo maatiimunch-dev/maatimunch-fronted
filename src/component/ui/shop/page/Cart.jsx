@@ -280,7 +280,7 @@ const Cart = () => {
                             <button
                               onClick={() => updateQuantity(item._id || item.id, item.quantity - 1)}
                               disabled={loading}
-                              className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 font-semibold disabled:opacity-50"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 font-semibold disabled:opacity-50 cursor-pointer"
                             >
                               <Minus className="w-4 h-4" />
                             </button>
@@ -288,7 +288,7 @@ const Cart = () => {
                             <button
                               onClick={() => updateQuantity(item._id || item.id, item.quantity + 1)}
                               disabled={loading}
-                              className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 font-semibold disabled:opacity-50"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 font-semibold disabled:opacity-50 cursor-pointer"
                             >
                               <Plus className="w-4 h-4" />
                             </button>
@@ -298,7 +298,7 @@ const Cart = () => {
                           <button
                             onClick={() => removeFromCart(item._id || item.id)}
                             disabled={loading}
-                            className="flex items-center gap-2 text-red-600 hover:text-red-700 text-sm font-medium disabled:opacity-50"
+                            className="flex items-center gap-2 text-red-600 hover:text-red-700 text-sm font-medium disabled:opacity-50 cursor-pointer"
                           >
                             <Trash2 className="w-4 h-4" />
                             Remove
@@ -345,7 +345,7 @@ const Cart = () => {
               <button
                 onClick={() => navigate('/checkout')}
                 disabled={loading}
-                className="w-full bg-orange-500 text-white py-3 rounded-md font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-orange-500 text-white py-3 rounded-md font-semibold hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 Proceed to Checkout
               </button>

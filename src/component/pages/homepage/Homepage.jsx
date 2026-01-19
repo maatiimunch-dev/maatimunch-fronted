@@ -5,15 +5,17 @@ import TopSellingProducts from '../../ui/topSellingProduct/TopSellingProducts'
 import FindUsSection from '../../ui/findUs/FindUsSection'
 import FaqSection from '../../ui/faq/FaqSection'
 import RecentBlogs from '../../ui/blog/RecentBlogs'
+import FeatureCards from '../../ui/feautre/FeatureCards'
 
 const Homepage = () => {
   return (
     <div>
       <Home />
-      {/* <MakhanaSlider /> */}
+      <FeatureCards />
+      <MakhanaSlider />
       <TopSellingProducts />
       <FindUsSection />
-      <RecentBlogs />
+      {/* <RecentBlogs /> */}
       <FaqSection />
     </div>
   )
