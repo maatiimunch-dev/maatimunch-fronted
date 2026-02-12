@@ -69,6 +69,9 @@ import PrivacyPolicy from "./component/ui/policies/PrivacyPolicy";
 import ShippingPolicy from "./component/ui/policies/ShippingPolicy";
 import TermsConditions from "./component/ui/policies/TermsConditions";
 import CancellationRefundPolicy from "./component/ui/policies/CancellationRefundPolicy";
+import ForgotPassword from "./component/ui/login/ForgotPassword";
+import VerifyOTP from "./component/ui/login/VerifyOTP";
+import ResetPassword from "./component/ui/login/ResetPassword";
 
 /* =========================
    🔐 Protected Route
@@ -89,6 +92,9 @@ function App() {
             {/* ---------- Public Routes ---------- */}
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+<Route path="/verify-otp" element={<VerifyOTP />} />
+<Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/register" element={<Register key="register" />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/products" element={<Products />} />
