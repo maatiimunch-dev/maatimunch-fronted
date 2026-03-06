@@ -98,7 +98,7 @@ export const CartProvider = ({ children }) => {
       // Agar user logged in nahi hai
       if (!token || !userId) {
         alert('Please login to add items to cart');
-        window.location.href = '/login';
+        window.location.href = `/login?returnTo=${window.location.pathname}`;
         return;
       }
 

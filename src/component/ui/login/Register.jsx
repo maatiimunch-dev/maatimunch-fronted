@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Mail, Lock, User, Phone, Loader, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+const searchParams = new URLSearchParams(location.search);
+const returnTo = searchParams.get('returnTo') || '/';
+
   const { register, login } = useAuth(); // ✅ Added login from useAuth
   
   const [formData, setFormData] = useState({
@@ -89,7 +93,7 @@ const Register = () => {
       setErrors({}); // Clear errors too
 
       if (result && (result.success || result.token || result.data)) {
-        navigate('/');
+      navigate(returnTo);
       } else if (result && result.message) {
         setErrors({ submit: result.message });
       }
@@ -280,3 +284,4 @@ const Register = () => {
 };
 
 export default Register;
+
