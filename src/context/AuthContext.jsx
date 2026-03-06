@@ -31,12 +31,21 @@ export const AuthProvider = ({ children }) => {
         password
       });
 
-      if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-        setUser(response.data.user);
-        return { success: true };
-      }
+      // if (response.data.token) {
+      //   localStorage.setItem('token', response.data.token);
+      //   localStorage.setItem('user', JSON.stringify(response.data.user));
+      //   setUser(response.data.user);
+      //   return { success: true };
+      // }
+
+      if (response.data.success) {
+  if (response.data.token) {
+    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('user', JSON.stringify(response.data.user));
+    setUser(response.data.user);
+  }
+  return { success: true };
+}
     } catch (error) {
       console.error('Registration error:', error);
       return { 
