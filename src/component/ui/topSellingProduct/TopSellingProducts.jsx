@@ -19,7 +19,7 @@ const TopSellingProducts = () => {
   useEffect(() => {
   const fetchProducts = async () => {
     try {
-      const res = await api.get('/products/fetch')
+      const res = await api.get('/products')
    
 
       let productList = []
